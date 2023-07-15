@@ -32,16 +32,16 @@ function populateHTML(data) {
   var html = '';
   data.content.forEach(item => {
     html += '<div class="card mb-3 containers">';
-    html += '<div class="row g-0">';
-    html += '<div class="col-md-4" >';
-    html += '<img src="' + item.locandina + '" class="img-fluid rounded-start"  alt="Evento">'
+    html += '<div class="row g-0 mid-containers">';
+    html += '<div class="col-md-4 prova" >';
+    html += '<img src="' + item.locandina + '" class=" rounded-start"  alt="Evento">'
     html += '</div>';
-    html += '<div class="col-md-8">';
+    html += '<div class="col-md-8 card-containers">';
     html += '<div class="card-body">';
     html += '<h5 class="card-title">' + item.nome + '</h5>';
     html += '<p class="card-text">' + item.localita.citta + ' in: ' + item.localita.zona + '</p>';
     html += '<p class="card-text"><small class="text-body-secondary">' + item.data + '</small></p>';
-    html += '<a class="dettagli"href="login"/>DETTAGLI</a>';
+    html += '<a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="login"/>DETTAGLI</a>';
     html += '</div>';
     html += '</div>';
     html += '</div>';
