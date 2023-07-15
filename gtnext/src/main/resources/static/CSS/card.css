@@ -1,0 +1,17 @@
+body {
+    background-color: darkslategrey;
+}
+
+@media (max-width: 480px) {
+    img {
+        width: 100%;
+    }
+}
+
+@media(min-width:480px) {
+
+    #context {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
