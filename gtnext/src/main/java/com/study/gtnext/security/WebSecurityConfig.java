@@ -66,12 +66,12 @@ public class WebSecurityConfig {
         .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
         .authorizeHttpRequests()
-        .requestMatchers("/api/eventi").permitAll()
+       /* .requestMatchers("/api/eventi").permitAll()
         .requestMatchers("/api/auth/**").permitAll()
         .requestMatchers("/login/**").permitAll()
         .requestMatchers("/logout/**").permitAll()
         .requestMatchers("/js/**").denyAll()
-        .requestMatchers("/css/**").denyAll()
+        .requestMatchers("/css/**").denyAll()*/
         .anyRequest().permitAll();
 
     http.authenticationProvider(authenticationProvider());
