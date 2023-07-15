@@ -9,6 +9,6 @@ import com.study.gtnext.entity.Evento;
 
 public interface EventoRepo extends JpaRepository<Evento,Long>{
     
-    @Query("SELECT e FROM Evento e ORDER BY RAND() LIMIT 8")
+    @Query("SELECT e FROM Evento e ORDER BY RAND()")
     public List<Evento> FindWithLimit();
 }

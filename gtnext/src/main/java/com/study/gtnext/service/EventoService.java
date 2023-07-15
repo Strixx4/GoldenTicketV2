@@ -1,7 +1,11 @@
 package com.study.gtnext.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.study.gtnext.converter.EventoConverter;
@@ -21,9 +25,13 @@ public class EventoService extends GenericService<
     public EventoService(EventoConverter converter,EventoRepo repository){
         super(converter,repository);
     }
-    public List<EventoDTO> FindWithLimit(){
-        List<Evento> le = getRepository().FindWithLimit();
-        List<EventoDTO> lde = getConverter().reverseConvertList(le);
-        return lde;
+    public Page<EventoDTO> FindWithLimit(int page,int size){
+        Page<Evento> pages = getRepository().findAll(PageRequest.of(page,size));
+        List<EventoDTO> pagesDtoList = new ArrayList<>();
+        pages.stream().forEach(
+            x -> {pagesDtoList.add(getConverter().reverseConvert(x));}
+        );
+        Page<EventoDTO> pagesDto = new PageImpl<>(pagesDtoList);
+        return pagesDto;
     }
 }
