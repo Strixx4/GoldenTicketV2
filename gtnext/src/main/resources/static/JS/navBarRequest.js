@@ -10,9 +10,6 @@ function popolateListCitta(url) {
             populateHTMLCitta(data);
         });
 }
-function stampa(){
-    console.log("PORCODDIO");
-}
 function populateHTMLCitta(data) {
     var dataContainer = document.getElementById('listCitta');
     var html = '';
@@ -20,8 +17,10 @@ function populateHTMLCitta(data) {
         var placeholder="'/api/eventi/citta?citta="+item.citta+"&page=0&size=8'";
         var placeCitta = "'citta'";
         var placeParam="'"+item.citta+"'";
-        html += `<li class="dropdown-item listItem"><button onclick="popolateByUrl(${placeholder},${placeCitta},${placeParam})">
-             ${item.citta}  </button></li>`;
+        html += `<li class="dropdown-item listItem">
+                <button onclick="popolateByUrl(${placeholder},${placeCitta},${placeParam})">
+                ${item.citta}  
+                </button></li>`;
     });
     dataContainer.innerHTML = html;
 }
