@@ -31,4 +31,12 @@ public class EventoController {
     ){
         return eService.FindWithLimit(page,size);
     }
+    @GetMapping("citta")
+    public Page<EventoDTO> findCitta(
+         @RequestParam(name = "page", defaultValue = "0") int page,
+            @RequestParam(name = "size", defaultValue = "10") int size,
+            @RequestParam("citta") String citta
+    ){
+        return eService.FindByCitta(page,size,citta);
+    }
 }

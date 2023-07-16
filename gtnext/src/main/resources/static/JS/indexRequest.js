@@ -1,22 +1,36 @@
 var page = 0;
+var salvataggio = "all";
+var parametro = "";
 document.addEventListener('DOMContentLoaded', function () {
-  popolateByUrl('/api/eventi/limit?page=0&size=8');
+  popolateByUrl('/api/eventi/limit?page=0&size=8', "all", "");
 });
 
 function prevPage() {
   if (--page < 0) {
     page = 0;
   }
-  url = '/api/eventi/limit?page=' + page + '&size=8';
-  popolateByUrl(url)
+  if (salvataggio === "all") {
+    url = '/api/eventi/limit?page=' + page + '&size=8';
+  }
+  if (salvataggio === "citta") {
+    url = '/api/eventi/citta?citta' + parametro + '&page=' + page + '&size=8';
+  }
+  popolateByUrl(url,salvataggio,parametro)
 }
 
 function nextPage() {
-  url = '/api/eventi/limit?page=' + (++page) + '&size=8';
-  popolateByUrl(url);
+  if (salvataggio === "all") {
+    url = '/api/eventi/limit?page=' + (++page) + '&size=8';
+  }
+  if (salvataggio === "citta") {
+    url = '/api/eventi/citta?citta' + parametro + '&page=' + (++page) + '&size=8';
+  }
+  popolateByUrl(url,salvataggio,parametro)
 }
 
-function popolateByUrl(url) {
+function popolateByUrl(url,cosa,come) {
+  salvataggio=cosa;
+  parametro=come;
   fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -36,7 +50,7 @@ function populateHTML(data) {
     html += '<div class="col-md-4 prova" >';
     html += '<img src="' + item.locandina + '" class=" rounded-start"  alt="Evento">'
     html += '</div>';
-    html += '<div class="col-md-8 card-containers">';
+    html += '<div class="col-md-8 card-containers ">';
     html += '<div class="card-body">';
     html += '<h5 class="card-title">' + item.nome + '</h5>';
     html += '<p class="card-text">' + item.localita.citta + ' in: ' + item.localita.zona + '</p>';

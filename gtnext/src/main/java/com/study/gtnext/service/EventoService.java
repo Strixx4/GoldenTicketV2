@@ -34,4 +34,14 @@ public class EventoService extends GenericService<
         Page<EventoDTO> pagesDto = new PageImpl<>(pagesDtoList);
         return pagesDto;
     }
+
+    public Page<EventoDTO> FindByCitta(int page,int size,String citta){
+        Page<Evento> pages = getRepository().findByCitta(PageRequest.of(page,size),citta);
+        List<EventoDTO> pagesDtoList = new ArrayList<>();
+        pages.stream().forEach(
+            x -> {pagesDtoList.add(getConverter().reverseConvert(x));}
+        );
+        Page<EventoDTO> pagesDto = new PageImpl<>(pagesDtoList);
+        return pagesDto;
+    }
 }
