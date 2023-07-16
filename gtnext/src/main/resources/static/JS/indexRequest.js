@@ -1,8 +1,8 @@
 var page = 0;
-var salvataggio = "all";
+var salvataggio = 'all';
 var parametro = "";
 document.addEventListener('DOMContentLoaded', function () {
-  popolateByUrl('/api/eventi/limit?page=0&size=8', "all", "");
+  popolateByUrl('/api/eventi/limit?page=0&size=8', 'all', "");
 });
 
 function prevPage() {
@@ -12,8 +12,9 @@ function prevPage() {
   if (salvataggio === "all") {
     url = '/api/eventi/limit?page=' + page + '&size=8';
   }
-  if (salvataggio === "citta") {
-    url = '/api/eventi/citta?citta' + parametro + '&page=' + page + '&size=8';
+  if (salvataggio === 'citta') {
+    url = '/api/eventi/citta?citta=' + parametro + '&page=' + page + '&size=8';
+    console.log(url);
   }
   popolateByUrl(url,salvataggio,parametro)
 }
@@ -23,7 +24,7 @@ function nextPage() {
     url = '/api/eventi/limit?page=' + (++page) + '&size=8';
   }
   if (salvataggio === "citta") {
-    url = '/api/eventi/citta?citta' + parametro + '&page=' + (++page) + '&size=8';
+    url = '/api/eventi/citta?citta=' + parametro + '&page=' + (++page) + '&size=8';
   }
   popolateByUrl(url,salvataggio,parametro)
 }
