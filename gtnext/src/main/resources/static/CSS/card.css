@@ -46,21 +46,20 @@ button:hover svg {
 
 @media screen and (min-width: 600px) and (max-height: 1200px) {
     img {
-        width: 200px;
+        width: 160px;
         height: 270px;
     }
-
-    .containers {
+    .prova{
+        width: 160px;
+    }
+    #context {
         display: flex;
+        flex-wrap: wrap;
     }
-
-    .prova {
-        width: 200px;
-    }
-
-    .card-containers {
-        max-width: 300px;
-    }
+    .containers {   
+        width: 48%;
+        margin: 10px;
+     }
 
 
 }
@@ -71,9 +70,9 @@ button:hover svg {
         flex-wrap: wrap;
     }
     .containers {   
-       width: 540px;
-       margin: 10px;
-    }
+        width: 48%;
+        margin: 10px;
+     }
 }
 @media screen and (min-width: 1221px){
     #context {
@@ -82,7 +81,7 @@ button:hover svg {
         flex-wrap: wrap;
     }
     .containers {   
-       width: 46%;
+       width: 48%;
        margin: 10px;
     }
 }

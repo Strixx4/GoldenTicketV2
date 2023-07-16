@@ -14,7 +14,9 @@ function prevPage() {
   }
   if (salvataggio === 'citta') {
     url = '/api/eventi/citta?citta=' + parametro + '&page=' + page + '&size=8';
-    console.log(url);
+  }
+  if(salvataggio==='tipologia'){
+    url = '/api/eventi/tipologia?tipologia=' + parametro + '&page=' + page + '&size=8';
   }
   popolateByUrl(url,salvataggio,parametro)
 }
@@ -25,6 +27,9 @@ function nextPage() {
   }
   if (salvataggio === "citta") {
     url = '/api/eventi/citta?citta=' + parametro + '&page=' + (++page) + '&size=8';
+  }
+  if(salvataggio==='tipologia'){
+    url = '/api/eventi/tipologia?tipologia=' + parametro + '&page=' + (++page) + '&size=8';
   }
   popolateByUrl(url,salvataggio,parametro)
 }

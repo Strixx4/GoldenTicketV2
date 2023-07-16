@@ -17,4 +17,11 @@ public interface EventoRepo extends JpaRepository<Evento,Long>{
 
     @Query("SELECT e FROM Evento e WHERE e.localita.citta= :citta")
     public Page<Evento> findByCitta(Pageable pageable,@Param("citta") String citta);
+
+    @Query("SELECT DISTINCT e.tipologia FROM Evento e")
+    public List<String> findTipologia();
+
+     @Query("SELECT e FROM Evento e WHERE e.tipologia= :tipologia")
+    public Page<Evento> findByTipologia(Pageable pageable,@Param("tipologia") String citta);
+
 }

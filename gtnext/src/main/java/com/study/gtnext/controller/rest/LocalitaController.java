@@ -19,7 +19,7 @@ public class LocalitaController {
 
     private final LocalitaService locService;
 
-    @GetMapping("lista")
+    @GetMapping("listacitta")
     public List<Citta> all(){
         return locService.listCitta();
     }
