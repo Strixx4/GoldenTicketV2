@@ -8,7 +8,7 @@
  * Spring Boot
 
 ### Tecnlogie
-* Java 17
+* Java v17
 * HQL
 * HTML,CSS,JS
 * BootStrap
