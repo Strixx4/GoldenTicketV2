@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.study.gtnext.dto.Citta;
-import com.study.gtnext.dto.LocalitaDTO;
 import com.study.gtnext.service.LocalitaService;
 
 import lombok.Data;

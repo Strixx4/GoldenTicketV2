@@ -2,14 +2,12 @@ package com.study.gtnext.controller.rest;
 
 import java.util.List;
 
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.study.gtnext.dto.Citta;
 import com.study.gtnext.dto.EventoDTO;
 import com.study.gtnext.dto.Tipologia;
 import com.study.gtnext.service.EventoService;
