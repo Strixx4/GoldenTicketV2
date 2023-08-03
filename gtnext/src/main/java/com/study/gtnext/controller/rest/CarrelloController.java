@@ -17,7 +17,7 @@ public class CarrelloController {
     private final CarrelloService cs;
 
     @GetMapping("/")
-    public ResponseEntity<?> re(@RequestParam("user") String u) {
+    public ResponseEntity<?> carrelloView(@RequestParam("user") String u) {
         return cs.findByUser(u);
     }
 }
