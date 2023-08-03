@@ -45,12 +45,6 @@ INSERT INTO `GoldenTicket`.`localita` (`citta`, `zona`, `posti`, `indirizzo`) VA
 INSERT INTO `GoldenTicket`.`localita` (`citta`, `zona`, `posti`, `indirizzo`) VALUES ('Sondrio', 'Teatro sociale', '500', 'Via della Bresaola 58');
 
 
-
--- #tabella artisti
--- create table artisti (
--- id int primary key auto_increment,
--- nominativo varchar(100));
-
 INSERT INTO `GoldenTicket`.`artisti` (`nominativo`) VALUES ('Vasco Rossi');
 INSERT INTO `GoldenTicket`.`artisti` (`nominativo`) VALUES ('Fiorella Mannoia');
 INSERT INTO `GoldenTicket`.`artisti` (`nominativo`) VALUES ('Rosario Fiorello');
@@ -82,27 +76,6 @@ INSERT INTO `GoldenTicket`.`artisti` (`nominativo`) VALUES ('Museo del Mare');
 INSERT INTO `GoldenTicket`.`artisti` (`nominativo`) VALUES ('Museo del Giocattolo');
 INSERT INTO `GoldenTicket`.`artisti` (`nominativo`) VALUES ('Museo Civico');
 
-
--- #table eventi
--- create table eventi (
--- id int primary key AUTO_INCREMENT,
--- tipologia varchar(40),
--- genere varchar(30),
--- data date,
--- ora varchar(10),
--- giornoSettimana varchar (30),
--- locandina varchar (300),
--- idLocalita int,
--- foreign key (idLocalita) references localita(id) on update cascade on delete cascade);
-
--- #table associativa
--- create table associativa (
--- id int primary key auto_increment,
--- idArtista int,
--- idEvento int,
--- foreign key (idArtista) references artisti(id) on update cascade on delete cascade,
--- foreign key (idEvento) references eventi(id) on update cascade on delete cascade
--- );
 
 INSERT INTO `GoldenTicket`.`eventi` (`nome`,`tipologia`, `genere`, `data`, `ora`, `giorno_settimana`, `locandina`, `id_localita`) VALUES ('Partita','Sport', 'Calcio', '2024-09-07', '20:30', 'Lunedì', 'https://cdn.skuola.net/news_foto/image-grabber/image-64621625e9ba2.jpg', '1');
 INSERT INTO `GoldenTicket`.`eventi` (`nome`,`tipologia`, `genere`, `data`, `ora`, `giorno_settimana`, `locandina`, `id_localita`) VALUES ('Teatro','Spettacolo', 'Commedia', '2024-07-26', '21:30', 'Domenica', 'https://www.studiarapido.it/wp-content/uploads/2016/04/commedia.jpg', '25');
@@ -138,68 +111,6 @@ INSERT INTO `GoldenTicket`.`eventi` (`nome`,`tipologia`, `genere`, `data`, `ora`
 INSERT INTO `GoldenTicket`.`eventi` (`nome`,`tipologia`, `genere`, `data`, `ora`, `giorno_settimana`, `locandina`, `id_localita`) VALUES ('Musical','Concerto', 'Rock', '2023-08-17', '20:00', 'Domenica', 'https://www.artribune.com/wp-content/uploads/2020/06/Museo-del-Prado-sala-24.jpg', '19');
 INSERT INTO `GoldenTicket`.`eventi` (`nome`,`tipologia`, `genere`, `data`, `ora`, `giorno_settimana`, `locandina`, `id_localita`) VALUES ('Musical','Concerto', 'Pop', '2023-07-24', '22:00', 'Sabato', 'https://flawless.life/wp-content/uploads/2022/04/I-Concerti-da-non-perdere-in-primavera-a-Milano-cover.jpg', '17');
 INSERT INTO `GoldenTicket`.`eventi` (`nome`,`tipologia`, `genere`, `data`, `ora`, `giorno_settimana`, `locandina`, `id_localita`) VALUES ('Musical','Concerto', 'Pop', '2024-09-07', '21:00', 'Lunedì', 'https://flawless.life/wp-content/uploads/2022/04/I-Concerti-da-non-perdere-in-primavera-a-Milano-cover.jpg', '30');
-
-
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('1', '29');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('2', '30');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('4', '31');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('12', '32');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('1', '33');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('12', '34');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('5', '15');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('6', '15');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('5', '17');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('7', '17');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('7', '18');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('5', '18');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('6', '21');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('6', '22');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('5', '23');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('7', '7');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('6', '7');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('6', '16');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('5', '19');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('7', '20');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('7', '22');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('6', '23');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('5', '16');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('6', '1');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('5', '1');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('21', '5');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('21', '6');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('22', '8');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('23', '9');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('24', '10');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('25', '11');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('26', '12');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('27', '13');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('28', '14');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('29', '14');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('30', '10');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('10', '2');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('11', '3');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('13', '4');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('14', '2');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('15', '3');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('16', '4');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('20', '24');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('19', '25');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('18', '26');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('2', '27');
-INSERT INTO `GoldenTicket`.`eventi_artisti` (`artisti_id`, `eventi_id`) VALUES ('4', '28');
-
-
--- #biglietti acquistati
--- create table bigliettiacquistati (
--- id int primary key AUTO_INCREMENT,
--- fila varchar(2),
--- posto int,
--- prezzo double,
--- dataEmissione date,
--- idUser int,
--- idEvento int,
--- foreign key (idUser) references utenti(id) on delete cascade on update cascade,
--- foreign key (idEvento) references eventi(id) on delete cascade on update cascade);
 
 
 INSERT INTO `GoldenTicket`.`bigliettiacquistati` (`fila`, `posto`, `prezzo`, `dataEmissione`, `idUser`, `idEvento`) VALUES ('B', '10', '100.50', '2022-03-16', '1', '29');
