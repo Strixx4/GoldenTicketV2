@@ -32,7 +32,7 @@ function NavBar() {
 					</li>
 				</ul>
 				
-					<button class="btn btn-outline-success broTTone text-white">Log</button>
+					<button class="btn btn-outline-success broTTone text-white" onclick="redLogin()">Log</button>
 				
 			</div>
 		</div>

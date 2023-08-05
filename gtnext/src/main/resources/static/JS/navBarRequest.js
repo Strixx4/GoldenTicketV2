@@ -2,7 +2,9 @@ document.addEventListener('DOMContentLoaded', function () {
     popolateListCitta('/api/localita/listacitta');
     popolateListTipologia('api/eventi/listatipologia');
 });
-
+function redLogin(){
+    window.location.href = "carrello"
+}
 function popolateListCitta(url) {
     fetch(url)
         .then(response => response.json())

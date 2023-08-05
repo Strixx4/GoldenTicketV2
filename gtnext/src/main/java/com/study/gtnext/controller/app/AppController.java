@@ -18,4 +18,9 @@ public class AppController {
         return "index.html";
     }
 
+    @GetMapping("carrello")
+    public String carrello(){
+        return "carrello.html";
+    }
+
 }

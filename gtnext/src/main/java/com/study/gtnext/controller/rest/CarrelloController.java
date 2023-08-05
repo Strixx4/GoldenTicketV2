@@ -20,4 +20,8 @@ public class CarrelloController {
     public ResponseEntity<?> carrelloView(@RequestParam("user") String u) {
         return cs.findByUser(u);
     }
+     @GetMapping("/mock")
+    public ResponseEntity<?> carrelloStrixx() {
+        return cs.findByUser("strixx");
+    }
 }
