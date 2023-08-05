@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class AppController {
 
-    @GetMapping("login")
-    public String app(){
-        return "login.html";
+    @GetMapping("")
+    public String home(){
+        return "redirect:index";
     }
 
     @GetMapping("index")
