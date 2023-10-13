@@ -1,11 +1,13 @@
 package com.study.gtnext.controller.rest;
 
-import org.springframework.http.ResponseEntity;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.study.gtnext.dto.CarrelloDTO;
 import com.study.gtnext.service.CarrelloService;
 
 import lombok.Data;
@@ -16,12 +18,12 @@ import lombok.Data;
 public class CarrelloController {
     private final CarrelloService cs;
 
-    @GetMapping("/")
-    public ResponseEntity<?> carrelloView(@RequestParam("user") String u) {
-        return cs.findByUser(u);
+    @GetMapping("/{id}")
+    public List<CarrelloDTO> carrelloView(@PathVariable Long id) {
+        return cs.findById(id);
     }
      @GetMapping("/mock")
-    public ResponseEntity<?> carrelloStrixx() {
-        return cs.findByUser("strixx");
+    public List<CarrelloDTO> carrelloStrixx() {
+        return cs.findById(Long.parseLong("1"));
     }
 }

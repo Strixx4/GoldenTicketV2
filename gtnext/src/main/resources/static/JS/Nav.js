@@ -1,4 +1,4 @@
-function NavBar() {
+function NavBar(home) {
     var html=`<nav class="navbar navbar-expand-lg bg-black navbar-dark text-white">
 		<div class="container-fluid">
 			<span class="navbar-brand" >GTNext</span>
@@ -11,8 +11,9 @@ function NavBar() {
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item">
 						<a class="nav-link active" aria-current="page" href="index">Home</a>
-					</li>
-					<li class="nav-item dropdown">
+					</li>`
+					if(home){
+					html += `<li class="nav-item dropdown">
 						<span class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
 							aria-expanded="false">
 							Località
@@ -29,8 +30,8 @@ function NavBar() {
 						<ul class="dropdown-menu" id="listTipologia">
 							<!--<li><a class="dropdown-item" href="#">Action</a></li>-->
 						</ul>
-					</li>
-				</ul>
+					</li>`}
+				html += `</ul>
 				
 					<button class="btn btn-outline-success broTTone text-white" onclick="redLogin()">Log</button>
 				
