@@ -1,5 +1,6 @@
 package com.study.gtnext.service;
 
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.stereotype.Service;
 
 import com.study.gtnext.converter.CustomerConverter;
@@ -20,14 +21,15 @@ public class CustomerService extends GenericService<
         super(converter, repository);
     }
 
-    public Customer findCustomer(String user) throws Exception{
+    public Customer findCustomer(String user) throws BadCredentialsException{
         Customer c = getRepository().findByUsername(user);
         if(c != null){
             return c;
         }else{
-            throw new Exception("User not found");
+            throw new BadCredentialsException("Bad Credentials");
         }
     }
+
     public CustomerDTO findByUser(String user) throws Exception{
          Customer c = getRepository().findByUsername(user);
         if(c != null){
