@@ -11,6 +11,7 @@ public class CustomerConverter implements Converter<Customer, CustomerDTO> {
     @Override
     public Customer convert(CustomerDTO u) {
         Customer c = new Customer();
+        c.setId(u.getId());
         c.setNominativo(u.getNomininativo());
         c.setUsername(u.getUsername());
         return c;
@@ -19,6 +20,7 @@ public class CustomerConverter implements Converter<Customer, CustomerDTO> {
     @Override
     public CustomerDTO reverseConvert(Customer u) {
         CustomerDTO c = new CustomerDTO();
+        c.setId(u.getId());
         c.setNomininativo(u.getNominativo());
         c.setUsername(u.getUsername());
         return c;

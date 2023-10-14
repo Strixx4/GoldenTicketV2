@@ -2,6 +2,7 @@ package com.study.gtnext.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -66,5 +67,9 @@ public class EventoService extends GenericService<
         );
         Page<EventoDTO> pagesDto = new PageImpl<>(pagesDtoList);
         return pagesDto;
+    }
+
+    public Optional<Evento> findById(Long id){
+        return getRepository().findById(id);
     }
 }

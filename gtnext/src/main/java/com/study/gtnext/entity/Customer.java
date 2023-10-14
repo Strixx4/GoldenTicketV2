@@ -22,7 +22,7 @@ import lombok.Data;
 public class Customer implements GenericEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String nominativo;
 

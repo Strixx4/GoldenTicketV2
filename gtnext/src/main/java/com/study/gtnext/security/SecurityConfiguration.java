@@ -26,10 +26,12 @@ public class SecurityConfiguration {
                 .addFilterBefore(new JWTValidatorFilter(), BasicAuthenticationFilter.class)
 
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/js/**", "/css/**", "/img/**").permitAll()
+                        .requestMatchers("/api/carrello/**", "/api/acquisti/**").authenticated()
                         .requestMatchers("/api/auth/signin").authenticated()
-                        .requestMatchers("/","/index","carrello","acquisti","login").permitAll()
-                        )
+                        .requestMatchers("/api/eventi/**", "/api/localita/**").permitAll()
+                        .requestMatchers("/", "/index", "/carrello", "/acquisti", "/login").permitAll()
+                        .requestMatchers("/js/**", "/css/**", "/img/**").permitAll())
+
                 .formLogin(
                         login -> login
                                 .loginPage("/login").permitAll())

@@ -13,7 +13,4 @@ public interface CarrelloRepo extends JpaRepository<Carrello,Long> {
 
     @Query("Select c FROM Carrello c where c.customer.id = :id")
     public List<Carrello> findByUserName(@Param("id")Long id);
-
-
-    void deleteById(Long id);
 }

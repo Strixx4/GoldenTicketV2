@@ -41,9 +41,13 @@ public class JWTValidatorFilter extends OncePerRequestFilter {
 
                 String user = String.valueOf(claim.get("username"));
                 String auths = (String) claim.get("authorities");
+                System.out.println(user);
+                 System.out.println(auths);
+
 
                 Authentication auth = new UsernamePasswordAuthenticationToken(user, null,
                         AuthorityUtils.commaSeparatedStringToAuthorityList(auths));
+                System.out.println(auth.isAuthenticated());
                 SecurityContextHolder.getContext().setAuthentication(auth);
             } catch (Exception ex) {
                 throw new BadCredentialsException("Invalid Token received!");
