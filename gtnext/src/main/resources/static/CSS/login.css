@@ -1,0 +1,25 @@
+.loginContainer {
+  margin: 20px;
+  background-color: rgba(0, 0, 0, 0.407);
+}
+.button-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-header {
+  color: aliceblue;
+}
+
+.btn {
+  background-color: rgb(220, 175, 106);
+  color: rgb(28, 27, 27);
+  border-color: rgba(0, 0, 0, 0);
+}
+
+.btn:hover {
+  background-color: rgb(220, 175, 106);
+  color: rgba(0, 0, 0, 0.318);
+  border-color: rgba(0, 0, 0, 0);
+  transform: scale(1.2);
+}

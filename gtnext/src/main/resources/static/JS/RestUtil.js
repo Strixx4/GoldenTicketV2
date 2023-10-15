@@ -5,7 +5,7 @@ class RestUtil {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        //! inserisci il token
+        Authorization: sessionStorage.getItem("loginToken"),
       },
     }).then(function (response) {
       if (response.status == 200) restOK.func(restOK.params);
@@ -18,7 +18,7 @@ class RestUtil {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        //! 'Authorization': sessionStorage.getItem("loginToken")
+        Authorization: sessionStorage.getItem("loginToken"),
       },
     })
       .then(function (response) {
@@ -34,20 +34,21 @@ class RestUtil {
           restutilOk.func(data, restutilOk.params);
           return data;
         } catch (e) {
-            console.log(e)
+          console.log(e);
         }
       });
   }
 
-  POST_request(url, restutilOk, restutilKo) {
+  POST_request(url, restutilOk, restutilKo, params) {
     // console.log(body)
     return fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        //!! 'Authorization': sessionStorage.getItem("loginToken")
+        Authorization: sessionStorage.getItem("loginToken"),
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
+      body: JSON.stringify(params),
     })
       .then(function (response) {
         console.log(response);
@@ -64,8 +65,36 @@ class RestUtil {
           restutilOk.func(data, restutilOk.params);
           // console.log(data)
           return data;
+        } catch (e) {}
+      });
+  }
+
+  POST_LOGIN_request(url, body, restutilOk, restutilKo) {
+    // console.log("body",body)
+    return fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: "Basic " + btoa(body.username + ":" + body.password),
+      },
+    })
+      .then(function (response) {
+        if (response.status == 200) {
+          const headers = response.headers;
+          const customHeader = headers.get("Authorization");
+          sessionStorage.setItem("loginToken", customHeader);
+          return response.text();
+        } else {
+          restutilKo.func(restutilKo.params);
+        }
+      })
+      .then(function (data) {
+        // `data` is the parsed version of the JSON returned from the above endpoint.
+        try {
+          data = JSON.parse(data);
+
+          restutilOk.func(data, restutilOk.params);
         } catch (e) {
-          alert("Dati non trovati");
+          alert("Probemi nei dati");
         }
       });
   }

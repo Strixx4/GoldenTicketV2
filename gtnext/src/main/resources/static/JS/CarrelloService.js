@@ -1,7 +1,9 @@
 class CarrelloService {
+  carrelloList = [];
+  template = "Non ci sono elementi"
   getCarrello() {
     restUtil.GET_request(
-      "/api/carrello/1",
+      "/api/carrello/" + sessionStorage.getItem("id"),
       new RestUtilPayLoad(this.carrOK, {}),
       new RestUtilPayLoad(this.carrKO, {})
     );
@@ -12,12 +14,14 @@ class CarrelloService {
   }
 
   carrOK(data) {
+    
+    this.carrelloList = [];
     var total = 0;
     console.log(data[0]);
     data.forEach((event) => {
       total += event.prezzo;
-      const template = `
-            <div class="card mb-3" style="max-width: 18rem; margin: 10px; background-color: rgb(220, 175, 106)">
+      template = `
+            <div class="card mb-3" style="max-width: 18rem; margin: 10px; ">
                 <div class="card-header">${event.evento.nome}</div>
                 <div class="card-body">
                     <p>Tipologia: ${event.evento.tipologia}</p>
@@ -31,6 +35,7 @@ class CarrelloService {
             </div>
             
         `;
+      this.carrelloList.push(event.id);
       var divElement = document.createElement("div");
       divElement.innerHTML = template;
       document.getElementById("container").appendChild(divElement);
@@ -40,11 +45,20 @@ class CarrelloService {
   }
 
   eliminaElemento(id) {
-    console.log(id);
+    restUtil.DELETE_request(
+      "/api/carrello/" + sessionStorage.getItem("id") + "/elimina?bigliettoId=" + id,
+      new RestUtilPayLoad(this.eliminaOk, {}),
+      new RestUtilPayLoad(this.eliminaKo, {})
+    );
+  }
+  eliminaOk() {
+    alert("Elemento eliminato");
     this.getCarrello();
   }
-
-  acquistaCarrello(){
+  eliminaKo() {
+    alert("Elemento non eliminato");
+  }
+  acquistaCarrello() {
     //TODO prendi da session storage ID e poi procedi all'acquisto
   }
 }

@@ -7,7 +7,19 @@
 #context {
   padding: 20px;
 }
-
+.containers {
+  background-color: rgb(220, 175, 106);
+}
+.containers:hover {
+  transform: scale(1.02);
+}
+button {
+  background-color: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
+}
+button:hover svg {
+  transform: scale(1.2);
+}
 /*TELEFONO*/
 @media (max-width: 600px) {
   .containers {

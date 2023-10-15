@@ -1,0 +1,25 @@
+.prezzoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+.card {
+  width: fit-content;
+  background-color: rgba(245, 245, 245, 0.565);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-header {
+  background-color: rgb(220, 175, 106);
+}
+
+#container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}

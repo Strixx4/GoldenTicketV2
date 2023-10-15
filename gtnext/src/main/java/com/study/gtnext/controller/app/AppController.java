@@ -9,17 +9,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AppController {
 
     @GetMapping("")
-    public String home(){
+    public String home() {
         return "redirect:index";
     }
 
     @GetMapping("index")
-    public String index(){
+    public String index() {
         return "index.html";
     }
 
+    @GetMapping("login")
+    public String login() {
+        return "login.html";
+    }
+
     @GetMapping("carrello")
-    public String carrello(){
+    public String carrello() {
         return "carrello.html";
     }
 
