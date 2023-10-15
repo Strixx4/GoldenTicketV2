@@ -26,15 +26,16 @@ public class SecurityConfiguration {
                 .addFilterBefore(new JWTValidatorFilter(), BasicAuthenticationFilter.class)
 
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/api/carrello/**", "/api/acquisto/**").hasRole("USER")
-                        .requestMatchers("/api/auth/signin").authenticated()
                         .requestMatchers("/api/eventi/**", "/api/localita/**").permitAll()
                         .requestMatchers("/", "/index", "/carrello", "/acquisti", "/login").permitAll()
-                        .requestMatchers("/js/**", "/css/**", "/img/**").permitAll())
+                        .requestMatchers("/JS/**", "/CSS/**", "/IMG/**").permitAll()
+                        .requestMatchers("/api/auth/signin").authenticated()
+                        .requestMatchers("/api/carrello/**", "/api/acquisto/**").hasRole("USER")
 
-                .formLogin(
-                        login -> login
-                                .loginPage("/login").permitAll())
+                )
+                // .formLogin(
+                // login -> login
+                // .loginPage("/login").permitAll())
                 .httpBasic(exception -> exception.authenticationEntryPoint((requests, response, authException) -> {
                     response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
                 }));

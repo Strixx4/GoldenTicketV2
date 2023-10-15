@@ -1,87 +1,61 @@
-body {
-    background-color: rgba(15, 15, 16, 0.769);
-}
-
-.containers {
-    background-color: rgb(220, 175, 106);
-    
-}
-
-button {
-    background-color: rgba(0, 0, 0, 0);
-    border-color: rgba(0, 0, 0, 0);
-}
-
 #button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.containers:hover {
-    transform: scale(1.02);
-}
-
-button:hover svg {
-    transform: scale(1.2);
-    /* Modifica la scala come preferisci */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #context {
-    padding: 20px;
+  padding: 20px;
 }
 
 /*TELEFONO*/
 @media (max-width: 600px) {
+  .containers {
+    padding-top: 0px !important;
+  }
 
-    .containers {
-        padding-top: 0px !important;
-    }
-
-    img {
-        width: 100%;
-        object-fit: contain;
-    }
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
 }
 
 @media screen and (min-width: 600px) and (max-height: 1200px) {
-    img {
-        width: 160px;
-        height: 270px;
-    }
-    .prova{
-        width: 160px;
-    }
-    #context {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .containers {   
-        width: 90%;
-        margin: 10px;
-     }
-
-
+  img {
+    width: 160px;
+    height: 270px;
+  }
+  .prova {
+    width: 160px;
+  }
+  #context {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .containers {
+    width: 90%;
+    margin: 10px;
+  }
 }
 
-@media screen and (min-width: 1201px) and (max-width:1220px) {
-    #context {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .containers {   
-        width: 48%;
-        margin: 10px;
-     }
+@media screen and (min-width: 1201px) and (max-width: 1220px) {
+  #context {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .containers {
+    width: 48%;
+    margin: 10px;
+  }
 }
-@media screen and (min-width: 1221px){
-    #context {
-        padding:15px;
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .containers {   
-       width: 48%;
-       margin: 10px;
-    }
+@media screen and (min-width: 1221px) {
+  #context {
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .containers {
+    width: 48%;
+    margin: 10px;
+  }
 }

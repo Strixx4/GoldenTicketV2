@@ -1,13 +1,13 @@
 .broTTone {
-    transition: color 0.3s, background-color 0.3s, border-color 0.3s;
-    border-color: white;
-  }
-  .broTTone:hover,
-  .broTTone:hover:not(.btn:focus) {
-    color: black;
-    background-color: rgb(220, 175, 106);
-    border-color: rgb(220, 175, 106);
-  }
-  .listItem:hover{
-    font-size: 23px;
-  }
+  transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+  border-color: white;
+}
+.broTTone:hover,
+.broTTone:hover:not(.btn:focus) {
+  color: black;
+  background-color: rgb(220, 175, 106);
+  border-color: rgb(220, 175, 106);
+}
+.listItem:hover {
+  font-size: 23px;
+}
