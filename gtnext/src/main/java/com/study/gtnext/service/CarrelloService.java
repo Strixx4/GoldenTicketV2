@@ -60,7 +60,7 @@ public class CarrelloService extends GenericService<Carrello, CarrelloConverter,
         } else
             return false;
 
-        c.setIdentificativo("fila" + filaCasuale(r.nextInt(0, 5)) + " posto " + idEvento);
+        c.setIdentificativo("fila " + filaCasuale(r.nextInt(0, 5)) + " posto " + idEvento);
         c.setPrezzo(prezzo(r.nextInt(0, 5)));
         getRepository().save(c);
         return true;

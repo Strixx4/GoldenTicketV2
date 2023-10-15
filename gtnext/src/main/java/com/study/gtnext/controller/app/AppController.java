@@ -28,4 +28,9 @@ public class AppController {
         return "carrello.html";
     }
 
+    @GetMapping("acquisti")
+    public String acquisti() {
+        return "acquisti.html";
+    }
+
 }
