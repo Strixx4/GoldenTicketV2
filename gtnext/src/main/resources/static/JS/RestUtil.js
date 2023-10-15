@@ -39,7 +39,6 @@ class RestUtil {
       });
   }
   POST_NODATI_request(url, restutilOk, restutilKo, params) {
-    // console.log(body)
     return fetch(url, {
       method: "POST",
       headers: {
@@ -57,7 +56,6 @@ class RestUtil {
     });
   }
   POST_request(url, restutilOk, restutilKo, params) {
-    // console.log(body)
     return fetch(url, {
       method: "POST",
       headers: {
@@ -80,12 +78,13 @@ class RestUtil {
           data = JSON.parse(data);
           restutilOk.func(data, restutilOk.params);
           return data;
-        } catch (e) {}
+        } catch (e) {
+          console.log(e);
+        }
       });
   }
 
   POST_LOGIN_request(url, body, restutilOk, restutilKo) {
-    // console.log("body",body)
     return fetch(url, {
       method: "POST",
       headers: {
@@ -109,7 +108,7 @@ class RestUtil {
 
           restutilOk.func(data, restutilOk.params);
         } catch (e) {
-          alert("Probemi nei dati");
+          console.log(e);
         }
       });
   }

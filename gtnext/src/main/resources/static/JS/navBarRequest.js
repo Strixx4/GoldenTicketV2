@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const loc = document.getElementById("localitaDD").innerHTML;
   const tip = document.getElementById("tipologiaDD").innerHTML;
-  console.log(loc)
   if (loc != null) popolateListCitta("/api/localita/listacitta");
   if (tip != null) popolateListTipologia("api/eventi/listatipologia");
 });
@@ -26,7 +25,6 @@ function popolateListTipologia(url) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       populateHTMLTipologia(data);
     });
 }
