@@ -25,7 +25,7 @@ public class CarrelloController {
 
     @GetMapping("/{id}")
     public List<CarrelloDTO> carrelloView(@PathVariable Long id) {
-        return cs.findById(id);
+        return cs.findByUser(id);
     }
 
     @PostMapping("/{id}/aggiungi")

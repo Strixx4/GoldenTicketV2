@@ -26,14 +26,18 @@ public class CarrelloService extends GenericService<Carrello, CarrelloConverter,
         this.customerService = cs;
     }
 
-    public List<CarrelloDTO> findById(Long id) {
+    public List<CarrelloDTO> findByUser(Long id) {
         List<Carrello> l = getRepository().findByUserName(id);
         List<CarrelloDTO> lc = new ArrayList<>();
         lc = l.stream().map(x -> getConverter().reverseConvert(x)).collect(Collectors.toList());
         return lc;
     }
 
-    public void delete(Long idBiglietto){
+    public Optional<Carrello> findById(Long id) {
+        return getRepository().findById(id);
+    }
+
+    public void delete(Long idBiglietto) {
         getRepository().deleteById(idBiglietto);
     }
 
