@@ -40,7 +40,7 @@ function NavBar(home) {
 				<a class="nav-link active" aria-current="page" href="/carrello">Carrello</a>
 	 		</li>
 			 <li class="nav-item dropdown"> 
-			 <a class="nav-link active" aria-current="page" href="/acquisto">Acquisti</a>
+			 <a class="nav-link active" aria-current="page" href="/acquisti">Acquisti</a>
 		  </li>`;
   }
   html += `</ul>`;

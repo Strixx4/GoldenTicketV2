@@ -26,6 +26,7 @@ class CarrelloService {
                   <div class="card-body">
                       <p>Tipologia: ${event.evento.tipologia}</p>
                       <p>Identificativo: ${event.identificativo}</p>
+                      <p>Data: ${event.evento.data}</p>
                       <p>Prezzo: ${event.prezzo}</p>
                       <div class="d-grid gap-2">
                           <button class="btn" type="button" style="background-color: rgba(0, 0, 0); color: bisque"
@@ -36,6 +37,7 @@ class CarrelloService {
             </div>
         `;
     });
+    total = total.toFixed(2);
     total += " €";
     document.getElementById("container").innerHTML = template;
     document.getElementById("prezzo").innerHTML = total;
@@ -71,7 +73,7 @@ class CarrelloService {
     document.location.href = "/acquisti";
   }
   acquistaKO() {
-    alert("Transizione non riuscita")
+    alert("Transizione non riuscita");
   }
 }
 let carrelloService = new CarrelloService();

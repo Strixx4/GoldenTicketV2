@@ -1,1 +1,1 @@
-carrelloService.getCarrello("strixx")
+carrelloService.getCarrello()
