@@ -38,7 +38,24 @@ class RestUtil {
         }
       });
   }
-
+  POST_NODATI_request(url, restutilOk, restutilKo, params) {
+    // console.log(body)
+    return fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: sessionStorage.getItem("loginToken"),
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify(params),
+    }).then(function (response) {
+      if (response.status === 200) {
+        restutilOk.func(restutilOk.params);
+      } else {
+        restutilKo.func(restutilKo.params);
+      }
+    });
+  }
   POST_request(url, restutilOk, restutilKo, params) {
     // console.log(body)
     return fetch(url, {
@@ -51,7 +68,6 @@ class RestUtil {
       body: JSON.stringify(params),
     })
       .then(function (response) {
-        console.log(response);
         if (response.status === 200) {
           return response.text();
         } else {
@@ -63,7 +79,6 @@ class RestUtil {
         try {
           data = JSON.parse(data);
           restutilOk.func(data, restutilOk.params);
-          // console.log(data)
           return data;
         } catch (e) {}
       });

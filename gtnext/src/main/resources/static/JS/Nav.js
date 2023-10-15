@@ -35,7 +35,6 @@ function NavBar(home) {
   }
   //* Aggiungo acquisti e chart
   if (token != null && token.length > 0) {
-    console.log("cart");
     html += `<li class="nav-item dropdown"> 
 				<a class="nav-link active" aria-current="page" href="/carrello">Carrello</a>
 	 		</li>

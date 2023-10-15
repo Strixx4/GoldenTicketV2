@@ -1,24 +1,28 @@
 class CarrelloService {
-  listaElementi = [];
-  getCarrello() {
+  listaElementi;
+  constructor() {
+    this.listaElementi = [];
+  }
+  getCarrello = () => {
     restUtil.GET_request(
       "/api/carrello/" + sessionStorage.getItem("id"),
       new RestUtilPayLoad(this.carrOK, {}),
       new RestUtilPayLoad(this.carrKO, {})
     );
-  }
+  };
 
-  carrKO() {
+  carrKO = () => {
     alert("Rsorse non trovate!");
-  }
+  };
 
-  carrOK(data) {
+  carrOK = (data) => {
     var total = 0;
     var template = "";
     document.getElementById("container").innerHTML = "";
     this.listaElementi = [];
     data.forEach((event) => {
       this.listaElementi.push(event.id);
+
       total += event.prezzo;
       template += `
               <div class="card mb-3" style="max-width: 18rem; margin: 10px; ">
@@ -41,9 +45,9 @@ class CarrelloService {
     total += " €";
     document.getElementById("container").innerHTML = template;
     document.getElementById("prezzo").innerHTML = total;
-  }
+  };
 
-  eliminaElemento(id) {
+  eliminaElemento = (id) => {
     restUtil.DELETE_request(
       "/api/carrello/" +
         sessionStorage.getItem("id") +
@@ -52,24 +56,31 @@ class CarrelloService {
       new RestUtilPayLoad(this.eliminaOk, {}),
       new RestUtilPayLoad(this.eliminaKo, {})
     );
-  }
-  eliminaOk() {
+  };
+  eliminaOk = () => {
     alert("Elemento eliminato");
     carrelloService.getCarrello();
-  }
-  eliminaKo() {
+  };
+  eliminaKo = () => {
     alert("Elemento non eliminato");
-  }
+  };
+
   acquistaCarrello() {
+    if (this.listaElementi.length == 0) {
+      alert("Non ci sono elementi da acquistare");
+      return;
+    }
     const body = { ids: this.listaElementi };
-    restUtil.POST_request(
+    restUtil.POST_NODATI_request(
       "/api/acquisto/acquista",
       new RestUtilPayLoad(this.acquistaOK, {}),
       new RestUtilPayLoad(this.acquistaKO, {}),
       body
     );
   }
+
   acquistaOK() {
+    alert("Biglietti acquistati");
     document.location.href = "/acquisti";
   }
   acquistaKO() {

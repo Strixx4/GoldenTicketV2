@@ -43,7 +43,7 @@ public class CarrelloService extends GenericService<Carrello, CarrelloConverter,
 
     public void deleteList(List<String> ids) {
         ids.stream().forEach(id -> {
-            delete(Long.parseLong(id));
+            this.delete(Long.parseLong(id));
         });
     }
 
