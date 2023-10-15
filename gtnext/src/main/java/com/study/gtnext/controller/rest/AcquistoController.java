@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.study.gtnext.dto.AcquistoDTO;
 import com.study.gtnext.service.AcquistoService;
+import com.study.gtnext.service.CarrelloService;
 
 import lombok.Data;
 
@@ -20,6 +21,7 @@ import lombok.Data;
 @Data
 public class AcquistoController {
     private final AcquistoService acquistoService;
+    private final CarrelloService carrelloService;
 
     @GetMapping("/{id}")
     public List<AcquistoDTO> readAll(@PathVariable Long id) {
@@ -27,7 +29,9 @@ public class AcquistoController {
     }
 
     @PostMapping("/acquista")
-    public void acquista(@PathVariable Long id, @RequestBody Map<String, List<String>> map) {
+    public void acquista(@RequestBody Map<String, List<String>> map) {
         acquistoService.saveList(map.get("ids"));
+        carrelloService.deleteList(map.get("ids"));
+
     }
 }

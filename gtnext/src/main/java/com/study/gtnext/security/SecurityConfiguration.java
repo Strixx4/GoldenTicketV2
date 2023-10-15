@@ -26,7 +26,7 @@ public class SecurityConfiguration {
                 .addFilterBefore(new JWTValidatorFilter(), BasicAuthenticationFilter.class)
 
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/api/carrello/**", "/api/acquisti/**").authenticated()
+                        .requestMatchers("/api/carrello/**", "/api/acquisto/**").hasRole("USER")
                         .requestMatchers("/api/auth/signin").authenticated()
                         .requestMatchers("/api/eventi/**", "/api/localita/**").permitAll()
                         .requestMatchers("/", "/index", "/carrello", "/acquisti", "/login").permitAll()

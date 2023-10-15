@@ -41,6 +41,12 @@ public class CarrelloService extends GenericService<Carrello, CarrelloConverter,
         getRepository().deleteById(idBiglietto);
     }
 
+    public void deleteList(List<String> ids) {
+        ids.stream().forEach(id -> {
+            delete(Long.parseLong(id));
+        });
+    }
+
     public boolean save(Long idUser, Long idEvento) {
         Carrello c = new Carrello();
         Optional<Evento> e = eventoService.findById(idEvento);
