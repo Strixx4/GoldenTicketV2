@@ -1,1 +1,2 @@
+loginService.checkILogged();
 acquistiService.getAcquisti();

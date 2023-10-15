@@ -28,12 +28,31 @@ class LoginService {
     resetField();
   }
 
-  logout(){
+  logout() {
     sessionStorage.setItem("loginToken", "");
     sessionStorage.setItem("idUser", "");
     sessionStorage.setItem("nominativo", "");
     sessionStorage.setItem("username", "");
     document.location.href = "/";
   }
+
+  check() {
+    const token = sessionStorage.getItem("loginToken");
+    if (token != null && token != "") return true;
+    else return false;
+  }
+
+  checkIfLogged(){
+    if(loginService.check){
+      document.location.href = "/index";
+    }
+  }
+
+  checkIfNotLogged(){
+    if(!loginService.check){
+      document.location.href = "/index";
+    }
+  }
 }
+
 let loginService = new LoginService();

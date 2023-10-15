@@ -1,1 +1,2 @@
-carrelloService.getCarrello()
+loginService.checkIfLogged();
+carrelloService.getCarrello();
