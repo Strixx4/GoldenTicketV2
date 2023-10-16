@@ -38,21 +38,20 @@ class LoginService {
 
   check() {
     const token = sessionStorage.getItem("loginToken");
-    if (token != null && token != "") return true;
+    if (token == null || token == "") return true;
     else return false;
   }
 
-  checkIfLogged(){
-    if(loginService.check){
+  checkIfLogged() {
+    if (loginService.check()) {
       document.location.href = "/index";
     }
   }
 
-  checkIfNotLogged(){
-    if(!loginService.check){
+  checkIfNotLogged() {
+    if (!loginService.check()) {
       document.location.href = "/index";
     }
   }
 }
-
 let loginService = new LoginService();
