@@ -25,7 +25,7 @@ public abstract class GenericService<
     private final C converter;
     private final J repository;
 
-
+    
     public D findByIdService(ID id) {
         return(D)converter.reverseConvert((E) repository.findById(id).get());
     }

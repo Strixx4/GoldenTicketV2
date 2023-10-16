@@ -61,7 +61,8 @@ function popolateByUrl(url, cosa, come) {
 function populateHTML(data) {
   var dataContainer = document.getElementById("context");
   var html = "";
-  var storageToken = sessionStorage.getItem("id");
+  var storageToken = sessionStorage.getItem("loginToken");
+  var id = sessionStorage.getItem("id");
   data.content.forEach((item) => {
     html += '<div class="card mb-3 containers">';
     html += '<div class="row g-0 mid-containers">';
@@ -82,9 +83,10 @@ function populateHTML(data) {
       '<p class="card-text"><small class="text-body-secondary">' +
       item.data +
       "</small></p>";
-    if (storageToken != null && storageToken.length > 0)
+    if (storageToken != null && storageToken != "")
       html += `<a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" 
-              onclick="indexService.aggiungi(${item.id},${storageToken})" role="button">Aggiungi</a>`;
+              onclick="indexService.aggiungi(${item.id},${id})" role="button">Aggiungi</a>`;
+
     html += "</div>";
     html += "</div>";
     html += "</div>";
